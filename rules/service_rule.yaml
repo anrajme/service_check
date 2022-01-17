@@ -8,8 +8,8 @@ trigger:
 action:
     ref: service_check.service
     parameters:
-        act: status
-        service: elasticsearch
+        act: { { trigger.status } }
+        service: { { trigger.service } }
         hosts: sj1010010247137.corp.adobe.com
         sudo: yes
         cwd: /home/stanley/
