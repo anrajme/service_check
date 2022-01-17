@@ -8,11 +8,5 @@ trigger_types:
     description: "Service status trigger"
     payload_schema:
       type: "object"
-      properties:
-        service:
-          type: "string"
-          required: true
-        status:
-          type: "string"
-          required: true
+
 
