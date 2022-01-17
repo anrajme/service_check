@@ -13,7 +13,7 @@ criteria:
 action:
     ref: service_check.service
     parameters:
-        act: status
+        act: restart
         service: "{{ trigger.service }}"
         hosts: sj1010010247137.corp.adobe.com
         sudo: yes
