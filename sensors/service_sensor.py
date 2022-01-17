@@ -1,8 +1,14 @@
 
 import eventlet
+import requests
+import json
 
 from st2reactor.sensor.base import Sensor
 
+HOST="sj1010010247137.corp.adobe.com"
+URI="/_cluster/health?pretty"
+PORT="9200"
+URL="http://"+HOST+":"+PORT+URI
 
 class ServiceSensor(Sensor):
     def __init__(self, sensor_service, config):
@@ -16,11 +22,10 @@ class ServiceSensor(Sensor):
     def run(self):
         while not self._stop:
             self._logger.debug("HelloSensor dispatching trigger...")
-            count = self.sensor_service.get_value("service_check.count") or 0
-            payload = {"greeting": "Yo, StackStorm!", "count": int(count) + 1}
+            http_resp=json.loads(requests.get(URL).text)
+            payload = {"service": http_resp['cluster_name'], "status": http_resp['status']}
             self.sensor_service.dispatch(trigger="service_check.service_event", payload=payload)
-            self.sensor_service.set_value("service_check.count", payload["count"])
-            eventlet.sleep(60)
+            eventlet.sleep(30)
 
     def cleanup(self):
         self._stop = True

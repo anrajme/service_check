@@ -1,10 +1,10 @@
 ---
 class_name: "ServiceSensor"
 entry_point: "service_sensor.py"
-description: "Test sensor that emits triggers."
+description: "Test the status of service"
 trigger_types:
   -
     name: "service_event"
-    description: "Service status trigger."
+    description: "Service status trigger"
     payload_schema:
       type: "object"
