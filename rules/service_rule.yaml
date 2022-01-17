@@ -12,3 +12,6 @@ action:
         service: elasticsearch
         hosts: sj1010010247137.corp.adobe.com
         sudo: yes
+        cwd: /home/stanley/
+        dir: /home/stanley/
+        username: stanley
