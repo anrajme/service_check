@@ -1,0 +1,13 @@
+---
+name: service_event
+pack: hello_st2
+description: Sample rule firing on service_check.service_event
+enabled: true
+trigger:
+    type: service_check.service_event
+action:
+    ref: service_check.service
+    parameters:
+        act: status
+        service: elasticsearch
+        hosts: sj1010010247137.corp.adobe.com

@@ -1,11 +1,11 @@
 ---
-ref: hello_st2
-name: Hello StackStorm
-description: Simple pack containing examples of sensor, rule, and action.
+ref: service_check
+name: service_check
+description: Pack to check the service health
 keywords:
-    - example
-    - test
-version: 3.6.0
+    - service
+    - health
+version: 1.0.0
 python_versions:
   - "2"
   - "3"

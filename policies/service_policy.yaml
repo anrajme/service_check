@@ -1,9 +1,9 @@
 ---
-name: greet.concurrency
-pack: hello_st2
+name: service_event.concurrency
+pack: service_check
 description: Limits the concurrent executions of the greet action.
 enabled: true
-resource_ref: hello_st2.greet
+resource_ref: service_check.service_event
 policy_type: action.concurrency
 parameters:
     threshold: 10
