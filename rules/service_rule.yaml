@@ -5,10 +5,14 @@ description: Sample rule firing on service_check.service_event
 enabled: true
 trigger:
     type: service_check.service_event
+criteria:
+    trigger.status:
+        type: nequals
+        pattern: red
 action:
     ref: service_check.service
     parameters:
-        act: "{{ trigger.status }}"
+        act: status
         service: "{{ trigger.service }}"
         hosts: sj1010010247137.corp.adobe.com
         sudo: yes
