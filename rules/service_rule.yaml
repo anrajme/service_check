@@ -1,6 +1,6 @@
 ---
 name: service_event
-pack: hello_st2
+pack: service_check
 description: Sample rule firing on service_check.service_event
 enabled: true
 trigger:
