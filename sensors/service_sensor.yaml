@@ -11,6 +11,8 @@ trigger_types:
     properties:
       service:
         type: "string"
+        required: true
       status:
         type: "string"
+        required: true
 
