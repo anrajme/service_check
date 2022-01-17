@@ -7,6 +7,10 @@ trigger:
     type: service_check.service_event
 
 
+criteria:
+    trigger.status:
+        type: nequals
+        pattern: green
 action:
     ref: service_check.service
     parameters:

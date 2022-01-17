@@ -22,9 +22,12 @@ class ServiceSensor(Sensor):
     def run(self):
         while not self._stop:
         #while true:
-            self._logger.debug("HelloSensor dispatching trigger...")
-            http_resp=json.loads(requests.get(URL).text)
-            payload = {"service": http_resp['cluster_name'], "status": http_resp['status']}
+            try:
+                self._logger.debug("HelloSensor dispatching trigger...")
+                http_resp=json.loads(requests.get(URL).text)
+                payload = {"service": http_resp['cluster_name'], "status": http_resp['status']}
+            except Exception as e:
+                payload = {"service": "ELASTICSEARCH", "status": "Not Available"}
             self.sensor_service.dispatch(trigger="service_check.service_event", payload=payload)
             eventlet.sleep(30)
 
