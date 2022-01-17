@@ -5,10 +5,10 @@ import json
 
 from st2reactor.sensor.base import Sensor
 
-HOST="sj1010010247137.corp.adobe.com"
-URI="/_cluster/health?pretty"
-PORT="9200"
-URL="http://"+HOST+":"+PORT+URI
+#HOST="sj1010010247137.corp.adobe.com"
+#URI="/_cluster/health?pretty"
+#PORT="9200"
+#URL="http://"+HOST+":"+PORT+URI
 
 class ServiceSensor(Sensor):
     def __init__(self, sensor_service, config):
@@ -20,11 +20,14 @@ class ServiceSensor(Sensor):
         pass
 
     def run(self):
+        self._host="sj1010010247137.corp.adobe.com"
+        self._uri="/_cluster/health?pretty"
+        self._port="9200"
+        self._url="http://"+self._host+":"+self._port+self._uri
         while not self._stop:
-        #while true:
             try:
-                self._logger.debug("HelloSensor dispatching trigger...")
-                http_resp=json.loads(requests.get(URL).text)
+                self._logger.debug("Sensor dispatching trigger")
+                http_resp=json.loads(requests.get(self._url).text)
                 payload = {"service": http_resp['cluster_name'], "status": http_resp['status']}
             except Exception as e:
                 payload = {"service": "elasticsearch", "status": "Not Available"}

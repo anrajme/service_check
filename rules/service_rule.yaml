@@ -6,7 +6,6 @@ enabled: true
 trigger:
     type: service_check.service_event
 
-
 criteria:
     trigger.status:
         type: nequals
