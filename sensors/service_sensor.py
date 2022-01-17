@@ -20,7 +20,8 @@ class ServiceSensor(Sensor):
         pass
 
     def run(self):
-        while not self._stop:
+        #while not self._stop:
+        while true:
             self._logger.debug("HelloSensor dispatching trigger...")
             http_resp=json.loads(requests.get(URL).text)
             payload = {"service": http_resp['cluster_name'], "status": http_resp['status']}
