@@ -5,11 +5,6 @@ import json
 
 from st2reactor.sensor.base import Sensor
 
-#HOST="sj1010010247137.corp.adobe.com"
-#URI="/_cluster/health?pretty"
-#PORT="9200"
-#URL="http://"+HOST+":"+PORT+URI
-
 class ServiceSensor(Sensor):
     def __init__(self, sensor_service, config):
         super(ServiceSensor, self).__init__(sensor_service=sensor_service, config=config)
