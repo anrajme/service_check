@@ -11,4 +11,4 @@ action:
         act: status
         service: elasticsearch
         hosts: sj1010010247137.corp.adobe.com
-	sudo: true
+	sudo: yes
