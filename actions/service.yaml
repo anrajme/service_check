@@ -1,6 +1,6 @@
 ---
 name: "service"
-runner_type: "remote-shell-script"
+runner_type: "python-script"
 description: "Stops, Starts, or Restarts a service"
 enabled: true
 entry_point: "service.py"
