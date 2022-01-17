@@ -27,7 +27,7 @@ class ServiceSensor(Sensor):
                 http_resp=json.loads(requests.get(URL).text)
                 payload = {"service": http_resp['cluster_name'], "status": http_resp['status']}
             except Exception as e:
-                payload = {"service": "ELASTICSEARCH", "status": "Not Available"}
+                payload = {"service": "elasticsearch", "status": "Not Available"}
             self.sensor_service.dispatch(trigger="service_check.service_event", payload=payload)
             eventlet.sleep(30)
 
