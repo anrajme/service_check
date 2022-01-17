@@ -8,7 +8,7 @@ trigger:
 
 criteria:
     trigger.status:
-        type: equals
+        type: nequals
         pattern: green
 action:
     ref: service_check.service
