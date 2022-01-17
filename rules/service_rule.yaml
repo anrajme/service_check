@@ -5,10 +5,11 @@ description: Sample rule firing on service_check.service_event
 enabled: true
 trigger:
     type: service_check.service_event
+    
 criteria:
     trigger.status:
         type: nequals
-        pattern: red
+        pattern: green
 action:
     ref: service_check.service
     parameters:
