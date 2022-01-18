@@ -18,7 +18,7 @@ if [ $distro == 'Ubuntu' ]
     /etc/init.d/$service $act
 elif [[ $distro == "Redhat" ||  $distro == "Fedora"  ||  $distro == "CentOS" ]]
   then
-    systemctl $service $act
+    systemctl $act $service
 else
    echo "Unsupported Operating System"
 fi
