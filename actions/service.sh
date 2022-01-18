@@ -21,7 +21,7 @@ elif [[ $distro == "Redhat" ||  $distro == "Fedora"  ||  $distro == "CentOS" ]]
     systemctl $act $service
     if [ $? -eq 0 ]
       then
-        echo "$service has been '$act'ed"
+        echo "$service has been ${act}ed"
     fi
 else
    echo "Unsupported Operating System"
